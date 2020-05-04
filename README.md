@@ -11,7 +11,7 @@ Kõik skriptid tuleks luua "/playbook" kataloogi.
 ### Skripti valimine
 Toimivaks lahenduseks on mõistlik kõik skriptid järjest käivitada.
 ### Skriptide installimine
-1. Kopeeri kogu skript antud lingilt: https://github.com/valloainsar/rsha-.
+1. Ansible skriptid on leitavad järgnevalt lingilt: https://github.com/valloainsar/rsha-ansible.
 2. Muudad avanenud skripti kõik read aktiivseks ning vajutad ctrl-c.
 3. Ava putty.exe, ava nano-ga fail (test.txt), kuhu soovid skripti saada.
 4. Parem klikk hiirel ning skript ongi Teie Linuxi masinas.
