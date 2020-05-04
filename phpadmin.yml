@@ -1,0 +1,30 @@
+---
+- hosts: webservers
+  tasks:
+
+  - name: andmebaasi loomine
+    mysql_db:
+      name: pma
+      state: present
+
+  - name: andmebaasi kasutaja loomine
+    mysql_user:
+      name: phpadmin
+      password: qwerty
+      priv: 'pma.*:ALL,GRANT'
+      state: present
+
+  - name: mysql alglaadimine
+    service: name=mysql state=restarted
+
+  - name: phpmyadmin allalaadimine ning lahtipakkimine
+    unarchive:
+      src: https://files.phpmyadmin.net/phpMyAdmin/4.9.5/phpMyAdmin-4.9.5-english.tar.gz
+      dest: /var/www/html/
+      remote_src: yes
+
+  - name: Muudame phpmyadmin lahtipakitud kausta nime oigeks
+    command: mv /var/www/html/phpMyAdmin-4.9.5-english /var/www/html/phpmyadmin
+
+  - name: apache 
+    service: name=apache2 state=restarted
